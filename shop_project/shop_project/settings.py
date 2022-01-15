@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$%s3=a_ewj54bfk_0*!6l55uylqn1-o&bg+ius3rwig3jisf)l'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,17 +39,34 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sites',
+
     # 3rd
     'rest_framework',
     "corsheaders",
 
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth',
+
 
     'drf_yasg',
 
     # local
     'products.apps.ProductsConfig'
 ]
+
+# allauth configs
+SITE_ID = 1  
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # new
+
+# swagger configs
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
