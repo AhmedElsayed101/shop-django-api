@@ -39,6 +39,14 @@ cd shop_project
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 ``` 
+## http://0.0.0.0:8000/swagger/  (or any backend port u use)
+
+### For testing (while inside the container)
+
+```sh
+python manage.py test
+``` 
+
 
 ## Production mode
 
@@ -73,3 +81,6 @@ make publish
 ```sh
 docker-compose -f docker-compose.yml up -d
 ```
+
+# API documentaion
+## http://localhost:8080/swagger/     (or any nginx port u use)
