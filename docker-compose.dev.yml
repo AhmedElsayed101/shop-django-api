@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    image: python:${PYTHON_VERSION}
+    ports:
+      - ${BROADCAST_PORT_BACKEND:-8000}:8000
+    volumes:
+      - ./:/app
+    env_file:
+      - dev.env
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${SQL_USER}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+      - POSTGRES_DB=${SQL_DATABASE}
+volumes:
+  postgres_data_dev:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.11.148.16/24
