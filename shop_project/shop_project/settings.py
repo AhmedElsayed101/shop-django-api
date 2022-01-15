@@ -39,13 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #3rd
+    # 3rd
     'rest_framework',
     "corsheaders",
 
     # 'rest_framework.authtoken',
 
-    #local
+    'drf_yasg',
+
+    # local
     'products.apps.ProductsConfig'
 ]
 
