@@ -1,4 +1,4 @@
-# Bit68
+# Shop django API
 
 ## Development mode
 
