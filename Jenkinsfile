@@ -7,7 +7,7 @@ pipeline {
 '''
               sh '''echo $PWD
 '''
-              sh '''ls -la"
+              sh '''ls -la
 '''
       }
     }
