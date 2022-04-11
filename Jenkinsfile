@@ -5,6 +5,10 @@ pipeline {
       steps {
         sh '''echo "hello world"
 '''
+              sh '''echo $PWD
+'''
+              sh '''ls -la"
+'''
       }
     }
 
