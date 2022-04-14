@@ -2,7 +2,6 @@
 
 
 pip install virtualenv
-cd app
 virtualenv ./env
 source ./env/bin/activate
 pip install -r requirements.txt
