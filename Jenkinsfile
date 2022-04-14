@@ -15,11 +15,14 @@
 //   }
 // }
 pipeline {
-    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
+    agent { docker { image 'python3.9:latest' } }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'python --version'
+                bash 'python --version'
+                echo '$PWD'
+                bash 'echo $PWD'
             }
         }
     }
