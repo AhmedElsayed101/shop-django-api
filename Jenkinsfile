@@ -20,9 +20,8 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
-                bash 'python --version'
                 echo '$PWD'
-                bash 'echo $PWD'
+                sh 'echo $PWD'
             }
         }
     }
